@@ -1,42 +1,205 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController(); // for section3 task4
+
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Section3().task3_4(controller, context),
+          // child: Section1().task1_4(),
+          // child: Section2().task2_1(),
+          // child: Section2().task2_4(),
+          // child: Section3().task3_4(controller, context)
+        ),
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});
+// SECTION 1
+// (Tasks 1.1 → 1.4)
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
+class Section1 {
+  // Task 1.1
+  Widget task1_1() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      color: Colors.redAccent,
+      height: 150,
+      width: 100,
+      child: const Text('Hello!'),
+    );
+  }
+
+  // Task 1.2
+  Widget task1_2() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      color: Colors.blue,
+      height: 100,
+      width: 100,
+      child: const Icon(Icons.home),
+    );
+  }
+
+  // Task 1.3
+  Widget task1_3() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      height: 100,
+      width: 100,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(16.0),
       ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      child: const Text('Rounded Box'),
+    );
+  }
+
+  // Task 1.4
+  Widget task1_4() {
+    return Container(
+      margin: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(16.0),
+      color: Colors.blue,
+      height: 100,
+      width: 100,
+      child: const Text('With Margin'),
+    );
+  }
+}
+
+//  SECTION 2
+// (Tasks 2.1 → 2.4)
+
+class Section2 {
+  // Task 2.1
+  Widget task2_1() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: const [
+        Text('Child 1'),
+        Text('Child 2'),
+        Text('Child 3'),
+        Text('Child 4'),
+      ],
+    );
+  }
+
+  // Task 2.2
+  Widget task2_2() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: const [
+        Text('Child 1'),
+        Text('Child 2'),
+        Text('Child 3'),
+        Text('Child 4'),
+      ],
+    );
+  }
+
+  // Task 2.3
+  Widget task2_3() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: const [
+        Text('Child 1'),
+        Text('Child 2'),
+        Text('Child 3'),
+        Text('Child 4'),
+      ],
+    );
+  }
+
+  // Task 2.4
+  Widget task2_4() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: const [
+        Text('Child 1'),
+        Text('Child 2'),
+        Text('Child 3'),
+        Text('Child 4'),
+      ],
+    );
+  }
+}
+
+class Section3 {
+  // Task 3.1
+  Widget task3_1() {
+    return const Center(
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: "Enter your password",
         ),
+      ),
+    );
+  }
+
+  // Task 3.2
+  Widget task3_2() {
+    return const Center(
+      child: TextField(
+        obscureText: true,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: "Enter your password",
+        ),
+      ),
+    );
+  }
+
+  // Task 3.3
+  Widget task3_3() {
+    return const Center(
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: "Enter your name",
+          icon: Icon(Icons.person),
+        ),
+      ),
+    );
+  }
+
+  // Task 3.4
+  Widget task3_4(TextEditingController controller, BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextField(
+            controller: controller,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "Type something",
+            ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              final text = controller.text;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("You typed: $text")),
+              );
+            },
+            child: const Text("Submit"),
+          ),
+        ],
       ),
     );
   }
