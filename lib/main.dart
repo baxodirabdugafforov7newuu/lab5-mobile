@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Section3().task3_4(controller, context),
+          child: Section4().task4_3(),
           // child: Section1().task1_4(),
           // child: Section2().task2_1(),
           // child: Section2().task2_4(),
           // child: Section3().task3_4(controller, context)
+          // child: Section4().task4_2()
         ),
       ),
     );
@@ -201,6 +202,65 @@ class Section3 {
           ),
         ],
       ),
+    );
+  }
+}
+
+class Section4 {
+  // Task 4.1
+  Widget task4_1() {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(height: 100, color: Colors.red),
+        ),
+        Expanded(
+          child: Container(height: 100, color: Colors.green),
+        ),
+      ],
+    );
+  }
+
+  // Task 4.2
+  Widget task4_2() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(height: 100, color: Colors.red),
+        ),
+        Expanded(
+          flex: 2,
+          child: Container(height: 100, color: Colors.green),
+        ),
+      ],
+    );
+  }
+
+  // Task 4.3
+  Widget task4_3() {
+    return Column(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Container(color: Colors.red),
+        ),
+        Expanded(
+          flex: 2,
+          child: Container(color: Colors.green),
+        ),
+      ],
+    );
+  }
+
+  // Task 4.4
+  Widget task4_4() {
+    return Row(
+      children: [
+        Container(width: 100, height: 100, color: Colors.red),
+        const Spacer(), // 👈 pushes them apart
+        Container(width: 100, height: 100, color: Colors.green),
+      ],
     );
   }
 }
