@@ -258,7 +258,7 @@ class Section4 {
     return Row(
       children: [
         Container(width: 100, height: 100, color: Colors.red),
-        const Spacer(), // 👈 pushes them apart
+        const Spacer(), 
         Container(width: 100, height: 100, color: Colors.green),
       ],
     );
