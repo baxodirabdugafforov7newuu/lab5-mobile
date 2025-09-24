@@ -290,12 +290,11 @@ class Section5 {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Top Row: Avatar + Name
             Row(
               children: [
                 const CircleAvatar(
                   radius: 24,
-                  child: Text("A"),
+                  child: Text("PD"),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -303,14 +302,14 @@ class Section5 {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        "User Name",
+                        "Pavel Durov",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        "@username",
+                        "@pavelDurov",
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -322,7 +321,7 @@ class Section5 {
 
             // Bio
             const Text(
-              "A short bio about the user goes here...",
+              "Software Engineer from San Fransisco",
               style: TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 16),
